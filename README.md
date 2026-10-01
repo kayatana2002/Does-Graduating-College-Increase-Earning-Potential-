@@ -1,4 +1,4 @@
-README.md
+
 Research Project: Does Graduating College Increase Earning Potential?
 This repository contains an exploratory analysis using NHANES data to investigate whether graduating college, rather than only attending, leads to increased earning potential across adulthood.
 
