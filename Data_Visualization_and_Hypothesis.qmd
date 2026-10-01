@@ -1,0 +1,95 @@
+---
+title: "Draft Report: Kayatana Estes"
+format: gfm
+editor: visual
+---
+
+## Background/Motivation for the Study
+
+Throughout my primary education, it was always pushed that getting a bachelor's degree would be the only way to make enough money to not live paycheck to paycheck. However, mine and others' experiences seem to show that this is untrue. Therefore, I want to compare those who graduated college with those who did not graduate and see if the earning potential of graduates, over time, is statistically significant in comparison to non-graduates.
+
+## Research Question and Hypothesis
+
+Does graduating college, as opposed to only attending, increase an individual's earning potential? By researching this question, I am hoping to prove whether graduating college is necessary to lead a comfortable life. I think that, initially, non-graduates will make more than graduates. However, once we reach later decades in life, graduates will surpass non-graduates and continue to increase their earning potential while non-graduates plateau.
+
+## Data Description and Exploratory Data Analysis
+
+Read in the data. You might want to consider filtering the dataset to only include the targeted variables. Identify targeted variables HERE: Poverty, HHIncomeMid, AgeDecade, Education
+
+```{r}
+library(NHANES)
+library(tidyverse)
+library(binom)
+library(mosaic)
+NHANES2 <- NHANES %>%
+  filter(
+    !is.na(Poverty),
+    !is.na(HHIncomeMid),
+    !is.na(AgeDecade),
+    !is.na(Education),
+    Education %in% c("Some College", "College Grad")
+  ) %>%
+  select(Poverty, HHIncomeMid, AgeDecade, Education)
+```
+
+By filtering the data this way, it is only showing the four variables I am wanting to analyze and also removes any NAs from these variables. For Poverty, it is a ratio of family income to poverty guidelines, so lower numbers imply more poverty. HHIncomeMid is the median income of the income range of the individual. This makes the data cleaner and easier to plot than if HHIncome was used. AgeDecade is a range of ages, which currently shows 30-39 to be the highest. For Education, Some College sits at 2007 individuals and College Grad sits at 1926.
+
+```{r}
+#Basic summary statistics here, sample size etc... 
+tally(NHANES2$AgeDecade)
+tally(NHANES2$Education)
+tally(NHANES2$HHIncomeMid)
+nrow(NHANES2)
+```
+
+Discuss key features of your targeted data. What is a typical value? Etc..
+
+Tallying Poverty is not very informative because there are so many possible values. The sample size for my question is 3933 individuals, compared to the 10,000 of the initial dataset.
+
+Visualize the relationships in your targeted variables.
+
+```{r}
+#Visualization goes here 
+library(ggplot2)
+ggplot(NHANES2, aes(x = Education, y = HHIncomeMid, fill = Education)) +
+  geom_boxplot() +
+  facet_wrap(~ AgeDecade) +
+  labs(
+    title = "Median Income by Education Level Across Age Groups",
+    x = "Education Level",
+    y = "Household Income (Midpoint)"
+  )
+NHANES_summary <- NHANES2 %>%
+  group_by(AgeDecade, Education) %>%
+  summarise(mean_income = mean(HHIncomeMid))
+
+ggplot(NHANES_summary, aes(x = Education, y = mean_income, fill = Education)) +
+  geom_col() +
+  facet_wrap(~ AgeDecade) +
+  labs(
+    title = "Mean Income by Education Level and Age Group",
+    x = "Education Level",
+    y = "Mean Household Income"
+  )
+ggplot(NHANES2, aes(x = Poverty, fill = Education)) +
+  geom_density(alpha = 0.4) +
+  facet_wrap(~ AgeDecade) +
+  labs(
+    title = "Distribution of Poverty Income Ratio by Education Level",
+    x = "Poverty Income Ratio",
+    y = "Density"
+  )
+```
+
+I have 3 different graphs here, with one of them comparing poverty levels between the groups to further compare the income of these two groups. The Distribution graph shows pretty comparable results in 20-29, with college grad increasing throughout the decades. This PIR peaks for college grad at ages 60-69. Once some college reaches 40-49, these individuals become closer to the poverty line than previously, which is very evident from 50-59. However, these numbers get better again in the last two age categories. This cannot be proven, but it is likely that this is due to retirement, which is further supported by college grad and some college becoming comparable again at 70+.
+
+The "Mean Income by Education Level and Age Group" consistently shows college graduates as making more than some college. While this is a great chart for visualizing the data, I do have to say that I prefer my boxplot. By taking the mean for each group, the data is being simplified to the point where it cannot convey the true income ranges for each group. The boxplot still highlights the mean, but it also shows the full range of data. I think 50-59 and 60-69 may be being cut off for the College Grad category, so any assistance with fixing that would be greatly appreciated. This plot still shows college graduates as having higher earning potential throughout each age group, but I feel that it better encompases the breadth of the data.
+
+## Analysis (LATER)
+
+```{r}
+#Test LATER 
+
+```
+
+## Conclusions (LATER)
