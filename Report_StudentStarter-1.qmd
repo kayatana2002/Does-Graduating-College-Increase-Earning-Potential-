@@ -1,0 +1,47 @@
+---
+title: "Draft Report: <ENTER YOUR NAME>  "
+format: docx
+editor: visual
+---
+
+## Background/Motivation for the Study
+
+\*\*If you included a personal reason for the study, you do NOT have to share that here. Include relevant reference material as needed to support background.
+
+## Research Question and Hypothesis  
+
+What is the research question? What do you think will happen? What are you trying to show?
+
+## Data Description and Exploratory Data Analysis 
+
+Read in the data. You might want to consider filtering the dataset to only include the targeted variables. Identify targeted variables HERE.
+
+```{r}
+library(NHANES)
+```
+
+Describe the observations and the general characteristics being measured in the targeted data.
+
+```{r}
+#Basic summary statistics here, sample size etc... 
+```
+
+Discuss key features of your targeted data. What is a typical value? Etc...
+
+Visualize the relationships in your targeted variables.
+
+```{r}
+#Visualization goes here 
+
+```
+
+Interpret the plots here. What does it show? How does this relate/support your research question?
+
+## Analysis (LATER)  
+
+```{r}
+#Test LATER 
+
+```
+
+## Conclusions (LATER) 
