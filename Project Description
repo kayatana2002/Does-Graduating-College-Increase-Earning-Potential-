@@ -1,6 +1,6 @@
 README.md
 Research Project: Does Graduating College Increase Earning Potential?
-This repository contains an exploratory analysis using NHANES data to investigate whether graduating college—rather than only attending—leads to increased earning potential across adulthood.
+This repository contains an exploratory analysis using NHANES data to investigate whether graduating college, rather than only attending, leads to increased earning potential across adulthood.
 
 The project compares two education groups:
 
@@ -14,20 +14,20 @@ Background and Motivation
 Throughout primary and secondary education, it is often emphasized that earning a bachelor’s degree is the only reliable path to financial stability. However, personal experiences and observations suggest that this may not always be true. This project aims to examine whether graduating college is associated with higher earning potential compared to individuals who attended college but did not complete a degree.
 
 Research Question
-Does graduating college, as opposed to only attending, increase an individual’s earning potential?
+Does graduating college, as opposed to only attending, increase an individual's earning potential?
 
 This question is explored using household income midpoint (HHIncomeMid), poverty ratio (Poverty), and age categories (AgeDecade) to compare income trajectories between graduates and non‑graduates.
 
 Hypothesis
 Based on general labor trends and personal reasoning:
 
-Early Career:  
+Early Career
 Individuals with some college may initially earn more than graduates because they enter the workforce earlier and may pursue trades or physically demanding jobs with competitive starting wages.
 
-Later Career:  
+Later Career
 As individuals reach later decades of life, graduates are expected to surpass non‑graduates in earning potential. Graduates often enter fields with higher long‑term salary growth, experience less physical job strain, and receive more employer benefits (e.g., retirement matching, pensions). Non‑graduates may experience wage plateauing as age impacts job performance and advancement opportunities.
 
-Age Considerations:  
+Age Considerations
 AgeDecade is necessary to avoid comparing individuals who are too young to have completed college. Income differences should be interpreted within age groups (e.g., a 26‑year‑old graduate should not be compared directly to a 53‑year‑old tradesperson).
 
 Data Description
@@ -58,24 +58,21 @@ HHIncomeMid ranges from $2,500 to $100,000+, with a large concentration in the $
 
 Exploratory Data Analysis
 Visualizations Created
-Boxplot: Median Income by Education Level Across Age Groups
-
+1. Boxplot: Median Income by Education Level Across Age Groups
 Shows the full distribution of HHIncomeMid for each education group within each age decade.
 
 College graduates consistently show higher median income across all age groups.
 
 Some higher‑income ranges for College Grad appear truncated in the 50–59 and 60–69 groups (likely due to axis limits).
 
-Mean Income by Education Level and Age Group (Bar Chart)
-
+2. Mean Income by Education Level and Age Group (Bar Chart)
 Summarizes average HHIncomeMid for each education group within each age decade.
 
 College graduates earn more on average in every age group.
 
 Useful for quick comparison, but less informative than the boxplot because it compresses the full income range.
 
-Distribution of Poverty Ratio by Education Level
-
+3. Distribution of Poverty Ratio by Education Level
 Density plots comparing Poverty values across age decades.
 
 College graduates show higher poverty ratios (indicating less poverty) in most decades.
@@ -103,6 +100,9 @@ Conducting hypothesis tests (e.g., t‑tests, confidence intervals)
 Evaluating income differences within age decades
 
 Interpreting whether graduating college provides a measurable long‑term advantage
+
+Conclusions (To Be Completed)
+A formal conclusion will be added after statistical testing is completed.
 
 Conclusions (To Be Completed)
 A formal conclusion will be added after statistical testing is completed.
